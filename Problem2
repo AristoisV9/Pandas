@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Nov 26 20:10:01 2019
+
+@author: Marc
+"""
+
+import pandas as pd
+data = pd.read_csv("cars.csv")
+df = pd.DataFrame(data)
+oddrows = df[df.index%2 != 0].head()
+mazda_row = df.loc[df["Model"]=="Mazda RX4"]
+camaro_cyl = df.loc[df["Model"]=="Camaro Z28"].loc[:,["Model","cyl"]]
+
+mazda_cyl_gear = df.loc[df["Model"]=="Mazda RX4 Wag"].loc[:,["Model","cyl","gear"]]
+ford_cyl_gear = df.loc[df["Model"]=="Ford Pantera L"].loc[:,["Model","cyl","gear"]]
+honda_cyl_gear = df.loc[df["Model"]=="Honda Civic"].loc[:,["Model","cyl","gear"]]
+
+print(oddrows)
+print()
+print(mazda_row)
+print()
+print(camaro_cyl)
+print()
+print(mazda_cyl_gear)
+print(ford_cyl_gear)
+print(honda_cyl_gear)
